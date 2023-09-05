@@ -1,44 +1,44 @@
-import React, { useState } from 'react'
-import Particles from "react-tsparticles"
-import { BsFillSunFill,BsFillMoonFill } from 'react-icons/bs'
+import React, { useState } from "react";
+import Particles from "react-tsparticles";
+import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 
-import Header from './components/header/Header'
-import Nav from './components/nav/Nav'
-import About from './components/about/About'
-import Experience from './components/experience/Experience'
-import Services from './components/services/Services'
-import Portfolio from './components/portfolio/Portfolio'
-import Testimonials from './components/testimonials/Testimonials'
-import Contact from './components/contact/Contact'
-import Footer from './components/footer/Footer'
+import Header from "./components/header/Header";
+import Nav from "./components/nav/Nav";
+import About from "./components/about/About";
+import Experience from "./components/experience/Experience";
+import Services from "./components/services/Services";
+import Portfolio from "./components/portfolio/Portfolio";
+import Testimonials from "./components/testimonials/Testimonials";
+import Contact from "./components/contact/Contact";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState("dark");
 
   const handleClick = () => {
-    theme === 'dark' ? setTheme('light') : setTheme('dark')
-  }
+    theme === "dark" ? setTheme("light") : setTheme("dark");
+  };
 
   const particlesInit = (main) => {
     console.log(main);
 
     // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
-  }
+  };
 
   const particlesLoaded = (container) => {
     console.log(container);
-  }
+  };
   return (
     <>
-       <Particles
-       style={{position: 'absolute !important'}}
+      <Particles
+        style={{ position: "absolute !important" }}
         id="tsparticles"
         init={particlesInit}
         loaded={particlesLoaded}
         options={{
           background: {
             color: {
-              value: `${theme === 'dark' ? '#151019' : '#fff'}`,
+              value: `${theme === "dark" ? "#151019" : "#fff"}`,
             },
           },
           fpsLimit: 600,
@@ -72,10 +72,10 @@ const App = () => {
           },
           particles: {
             color: {
-              value: `${theme === 'dark' ? '#ffffff' : '#000'}`,
+              value: `${theme === "dark" ? "#ffffff" : "#000"}`,
             },
             links: {
-              color: `${theme === 'dark' ? '#4db5ff' : '#000'}`,
+              color: `${theme === "dark" ? "#4db5ff" : "#000"}`,
               distance: 180,
               enable: true,
               opacity: 0.7,
@@ -103,10 +103,18 @@ const App = () => {
               value: 0.6,
             },
             shape: {
-              type: ["circle", "triangle", "line", "edge", "polygon", "star", 'image'],
-              "image" : {
-                src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_cYgoYT-brl1Ki4YFzwIeW5pv00kO5BNbXQ&usqp=CAU"
-              }
+              type: [
+                "circle",
+                "triangle",
+                "line",
+                "edge",
+                "polygon",
+                "star",
+                "image",
+              ],
+              image: {
+                src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_cYgoYT-brl1Ki4YFzwIeW5pv00kO5BNbXQ&usqp=CAU",
+              },
             },
             size: {
               random: true,
@@ -117,11 +125,20 @@ const App = () => {
         }}
       />
       <div className={`theme ${theme}`}>
-        <input onClick={() => (handleClick())} type="checkbox" className="checkbox" id="checkbox" />
+        <input
+          onClick={() => handleClick()}
+          type="checkbox"
+          className="checkbox"
+          id="checkbox"
+        />
         <label htmlFor="checkbox" className="label">
-          <i className="fas fa-moon"><BsFillMoonFill /></i>
-          <i className='fas fa-sun'><BsFillSunFill /></i>
-          <div className='ball' />
+          <i className="fas fa-moon">
+            <BsFillMoonFill />
+          </i>
+          <i className="fas fa-sun">
+            <BsFillSunFill />
+          </i>
+          <div className="ball" />
         </label>
       </div>
       <Header theme={theme} />
@@ -130,11 +147,11 @@ const App = () => {
       <Experience theme={theme} />
       {/* <Services /> */}
       <Portfolio theme={theme} />
-      <Testimonials theme={theme} />
+      {/* <Testimonials theme={theme} /> */}
       <Contact theme={theme} />
       <Footer theme={theme} />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
